@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Renew & Heal | Safe Harbor Consultation & Life Guidance</title>
+  <meta name="description" content="Compassionate, confidential life consultancy, emotional grounding, and personal guidance for those walking through rebuilding seasons." />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+          },
+          colors: {
+            sage: {
+              50: '#f4f7f4',
+              100: '#e5ece6',
+              200: '#ceddcf',
+              300: '#abc5ad',
+              400: '#83a886',
+              500: '#648b68',
+              600: '#4e7052',
+              700: '#3f5a43',
+              800: '#354838',
+              900: '#2d3c30',
+            },
+            warm: {
+              50: '#fdfbf7',
+              100: '#f9f6ef',
+              200: '#f2ecdf',
+              300: '#e8dcbe',
+              400: '#dec79b',
+              800: '#4a443a',
+              900: '#2b2721',
+            },
+            dustyrose: {
+              50: '#fbf6f6',
+              100: '#f7edec',
+              200: '#f0dcdb',
+              400: '#d79b98',
+              600: '#ab6663',
+            }
+          },
+          keyframes: {
+            breathe: {
+              '0%, 100%': { transform: 'scale(1)', opacity: '0.7' },
+              '40%': { transform: 'scale(1.45)', opacity: '1' },
+              '60%': { transform: 'scale(1.45)', opacity: '1' },
+              '90%': { transform: 'scale(1)', opacity: '0.7' }
+            }
+          },
+          animation: {
+            breathe: 'breathe 14s ease-in-out infinite',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    ::selection {
+      background-color: #ceddcf;
+      color: #2d3c30;
+    }
+    :focus-visible {
+      outline: 3px solid #648b68;
+      outline-offset: 3px;
+    }
+    @media (max-width: 640px) {
+      input, select, textarea, button { font-size: 16px; }
+      #booking .bg-white { padding: 1.25rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-warm-50 text-warm-900 font-sans antialiased selection:bg-sage-200 selection:text-sage-900 flex flex-col min-h-screen">
+
+  <!-- Urgent Lifeline Alert Header -->
+  <div class="bg-dustyrose-100 border-b border-dustyrose-200 text-warm-900 px-4 py-2.5 text-xs sm:text-sm">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+      <div class="flex items-center gap-2">
+        <i data-lucide="life-buoy" class="w-4 h-4 text-dustyrose-600 flex-shrink-0"></i>
+        <span><strong>In immediate emotional crisis or physical danger?</strong> You are not alone. Please reach out to free 24/7 helplines.</span>
+      </div>
+      <button type="button" aria-haspopup="dialog" aria-controls="crisisModal" onclick="openCrisisModal()" class="inline-flex items-center gap-1 font-semibold text-dustyrose-600 hover:text-dustyrose-800 underline underline-offset-2 flex-shrink-0">
+        View Global Crisis Numbers <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-40 bg-warm-50/90 backdrop-blur-md border-b border-warm-200/60 transition-all">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Brand -->
+        <a href="#" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-sage-500 text-white flex items-center justify-center shadow-sm">
+            <i data-lucide="feather" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <span class="font-serif text-2xl font-bold tracking-tight text-sage-900">Renew &amp; Heal</span>
+            <p class="text-[10px] uppercase tracking-widest text-sage-700 font-semibold -mt-1">Safe Harbor Consultancy</p>
+          </div>
+        </a>
+
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-warm-800">
+          <a href="#services" class="hover:text-sage-600 transition-colors">How We Help</a>
+          <a href="#calm-space" class="hover:text-sage-600 transition-colors">Peace Corner</a>
+          <a href="#about" class="hover:text-sage-600 transition-colors">About Us</a>
+          <a href="#testimonials" class="hover:text-sage-600 transition-colors">Stories of Hope</a>
+          <a href="#faq" class="hover:text-sage-600 transition-colors">Common Questions</a>
+        </div>
+
+        <!-- Book Action -->
+        <div class="flex items-center gap-3">
+          <a href="#booking" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-sage-600 hover:bg-sage-700 shadow-sm transition-all hover:shadow-md transform hover:-translate-y-0.5">
+            Book Gentle Call
+          </a>
+        </div>
+      </div>
+      <div id="mobileMenu" class="hidden md:hidden pb-4" aria-label="Mobile navigation">
+        <div class="flex flex-col gap-1 rounded-2xl border border-warm-200 bg-white p-2 shadow-sm text-sm font-medium">
+          <a href="#services" class="mobile-nav-link rounded-xl px-4 py-3 hover:bg-warm-100">How We Help</a>
+          <a href="#calm-space" class="mobile-nav-link rounded-xl px-4 py-3 hover:bg-warm-100">Peace Corner</a>
+          <a href="#about" class="mobile-nav-link rounded-xl px-4 py-3 hover:bg-warm-100">About Us</a>
+          <a href="#testimonials" class="mobile-nav-link rounded-xl px-4 py-3 hover:bg-warm-100">Stories of Hope</a>
+          <a href="#faq" class="mobile-nav-link rounded-xl px-4 py-3 hover:bg-warm-100">Common Questions</a>
+          <a href="#booking" class="mobile-nav-link rounded-xl px-4 py-3 font-semibold text-sage-700 hover:bg-sage-50">Book Gentle Call</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28">
+    <div class="absolute inset-0 -z-10 opacity-30 pointer-events-none">
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-sage-200 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 right-10 w-80 h-80 bg-dustyrose-200 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <!-- Empathetic Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sage-100 text-sage-800 text-xs sm:text-sm font-medium mb-6">
+        <i data-lucide="sparkles" class="w-4 h-4 text-sage-600"></i>
+        <span>Zero judgment. Zero pressure. Take all the time you need.</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-sage-950 max-w-3xl mx-auto leading-tight sm:leading-tight">
+        You don't have to carry the broken pieces alone.
+      </h1>
+
+      <p class="mt-6 text-lg sm:text-xl text-warm-800 max-w-2xl mx-auto font-normal leading-relaxed">
+        Whether you are walking through profound heartbreak, emotional exhaustion, grief, or personal rebuilds—our private consultancy offers a quiet, compassionate space to find clarity and ground your spirit.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#booking" class="w-full sm:w-auto px-8 py-4 rounded-full text-base font-semibold text-white bg-sage-600 hover:bg-sage-700 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+          <i data-lucide="message-circle-heart" class="w-5 h-5"></i>
+          Schedule a Safe Consultation
+        </a>
+        <a href="#calm-space" class="w-full sm:w-auto px-7 py-4 rounded-full text-base font-medium text-sage-800 bg-warm-100 hover:bg-warm-200 border border-warm-200 transition-all flex items-center justify-center gap-2">
+          <i data-lucide="wind" class="w-5 h-5 text-sage-600"></i>
+          Try 2-Min Calming Breath
+        </a>
+      </div>
+
+      <!-- Reassurance Badges -->
+      <div class="mt-12 pt-8 border-t border-warm-200/80 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto text-xs sm:text-sm text-warm-800">
+        <div class="flex items-center justify-center gap-2">
+          <i data-lucide="shield-check" class="w-4 h-4 text-sage-600"></i>
+          <span>100% Confidential</span>
+        </div>
+        <div class="flex items-center justify-center gap-2">
+          <i data-lucide="video-off" class="w-4 h-4 text-sage-600"></i>
+          <span>Camera Optional / Audio or Text</span>
+        </div>
+        <div class="flex items-center justify-center gap-2">
+          <i data-lucide="heart" class="w-4 h-4 text-sage-600"></i>
+          <span>Gentle &amp; Empathetic Care</span>
+        </div>
+        <div class="flex items-center justify-center gap-2">
+          <i data-lucide="calendar" class="w-4 h-4 text-sage-600"></i>
+          <span>Flexible Rescheduling</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Peace Corner (Breathing & Mood Check-In) -->
+  <section id="calm-space" class="py-16 bg-warm-100/70 border-y border-warm-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10">
+        <span class="text-xs uppercase tracking-widest font-bold text-sage-600">Instant Comfort</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-sage-950 mt-1">The Peace Corner</h2>
+        <p class="text-warm-800 text-sm sm:text-base max-w-xl mx-auto mt-2">
+          Before taking any step, pause for 60 seconds. Rest your hands, breathe with the circle, and let your shoulders drop.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-warm-50 p-6 sm:p-8 rounded-3xl border border-warm-200 shadow-sm">
+        
+        <!-- Box Breathing Widget -->
+        <div class="flex flex-col items-center justify-center p-6 bg-sage-50 rounded-2xl border border-sage-100 text-center">
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-sage-800 mb-6">Guided Paced Breathing</h3>
+          
+          <div class="relative w-48 h-48 flex items-center justify-center">
+            <!-- Pulsing Circle -->
+            <div id="breathCircle" class="w-28 h-28 rounded-full bg-sage-300/60 border-2 border-sage-500 animate-breathe flex items-center justify-center transition-all"></div>
+            <div class="absolute text-sage-900 font-medium text-sm text-center select-none pointer-events-none" id="breathInstruction">
+              Breathe In...
+            </div>
+          </div>
+
+          <p class="text-xs text-sage-700 mt-6 max-w-xs">
+            Follow the gentle expansion. Inhale softly for 4s, hold gently for 4s, exhale completely for 6s.
+          </p>
+        </div>
+
+        <!-- Gentle Affirmation & Quick Mood Validation -->
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-serif text-xl font-bold text-warm-900">How is your heart feeling right now?</h3>
+            <p class="text-xs text-warm-800 mt-1">Select an emotion to receive a gentle message tailored for you:</p>
+            
+            <!-- Emotion tags -->
+            <div class="flex flex-wrap gap-2 mt-4" id="moodButtons">
+              <button onclick="selectMood('exhausted')" class="mood-btn px-3 py-1.5 rounded-full text-xs font-medium border border-warm-300 bg-white hover:border-sage-500 hover:text-sage-700 transition-all">
+                😔 Emotionally Drained
+              </button>
+              <button onclick="selectMood('heartbroken')" class="mood-btn px-3 py-1.5 rounded-full text-xs font-medium border border-warm-300 bg-white hover:border-sage-500 hover:text-sage-700 transition-all">
+                💔 Heartbroken &amp; Grieving
+              </button>
+              <button onclick="selectMood('anxious')" class="mood-btn px-3 py-1.5 rounded-full text-xs font-medium border border-warm-300 bg-white hover:border-sage-500 hover:text-sage-700 transition-all">
+                🌪️ Overwhelmed &amp; Anxious
+              </button>
+              <button onclick="selectMood('lost')" class="mood-btn px-3 py-1.5 rounded-full text-xs font-medium border border-warm-300 bg-white hover:border-sage-500 hover:text-sage-700 transition-all">
+                🌫️ Lost &amp; Empty
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic Affirmation Box -->
+          <div id="affirmationBox" class="p-4 rounded-xl bg-warm-100 border border-warm-200 text-sm text-warm-900 italic transition-all min-h-[90px] flex items-center">
+            "Your value is not tied to how well you hold yourself together. It is completely okay to rest right here."
+          </div>
+
+          <div class="flex items-center justify-between pt-2 text-xs text-warm-800">
+            <span>Need someone to unpack this with?</span>
+            <a href="#booking" class="font-semibold text-sage-700 hover:underline flex items-center gap-1">
+              Talk to a consultant <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Consultancy Services Section -->
+  <section id="services" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="text-xs uppercase tracking-widest font-bold text-sage-600">Offerings &amp; Support</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-sage-950 mt-1">Pathways to Wholeness</h2>
+      <p class="text-warm-800 mt-3 text-base">
+        Every person's breakdown is different. Whether you need a non-judgmental listening ear, practical life realignment, or grief companioning, we walk at your pace.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Card 1 -->
+      <div class="bg-warm-50 rounded-3xl p-8 border border-warm-200 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-sage-100 text-sage-700 flex items-center justify-center mb-6">
+            <i data-lucide="coffee" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-warm-900 mb-2">The Unburdening Call</h3>
+          <p class="text-sm text-warm-800 leading-relaxed mb-4">
+            A pure, unfiltered, safe conversation. No unwanted advice, no toxic positivity. Simply empty out the heavy thoughts you cannot tell family or colleagues.
+          </p>
+          <ul class="space-y-2 text-xs text-warm-800 mb-6">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-sage-600"></i> 45-minute private session</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-sage-600"></i> Audio, Video, or Secure Chat</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-sage-600"></i> Post-session grounding notes</li>
+          </ul>
+        </div>
+        <button onclick="prefillService('The Unburdening Call')" class="w-full py-2.5 rounded-full border border-sage-600 text-sage-700 font-semibold text-xs hover:bg-sage-600 hover:text-white transition-colors">
+          Select This Path
+        </button>
+      </div>
+
+      <!-- Card 2 (Featured) -->
+      <div class="bg-sage-50 rounded-3xl p-8 border-2 border-sage-400 shadow-md relative flex flex-col justify-between">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-sage-600 text-white text-[11px] font-bold tracking-wider uppercase px-4 py-1 rounded-full">
+          Most Gentle Reset
+        </div>
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-sage-200 text-sage-800 flex items-center justify-center mb-6">
+            <i data-lucide="compass" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-sage-950 mb-2">Life Rebuild &amp; Direction</h3>
+          <p class="text-sm text-warm-800 leading-relaxed mb-4">
+            When career, divorce, or heartbreak leaves you feeling disoriented, we gently dissect the fog and draft tiny, manageable steps for next week.
+          </p>
+          <ul class="space-y-2 text-xs text-warm-800 mb-6">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-sage-600"></i> 60-minute deep realignment</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-sage-600"></i> Routine &amp; boundaries worksheet</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-sage-600"></i> 7 days follow-up text check-in</li>
+          </ul>
+        </div>
+        <button onclick="prefillService('Life Rebuild & Direction')" class="w-full py-2.5 rounded-full bg-sage-600 text-white font-semibold text-xs hover:bg-sage-700 transition-colors shadow-sm">
+          Select This Path
+        </button>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-warm-50 rounded-3xl p-8 border border-warm-200 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-dustyrose-100 text-dustyrose-600 flex items-center justify-center mb-6">
+            <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-warm-900 mb-2">Grief &amp; Heartbreak Companion</h3>
+          <p class="text-sm text-warm-800 leading-relaxed mb-4">
+            For those experiencing bereavement, profound relationship closure, or betrayal. We create an honoring container to process the pain without being rushed.
+          </p>
+          <ul class="space-y-2 text-xs text-warm-800 mb-6">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-sage-600"></i> 50-minute gentle companion session</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-sage-600"></i> Emotional regulation techniques</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-sage-600"></i> Curated grief resource toolkit</li>
+          </ul>
+        </div>
+        <button onclick="prefillService('Grief & Heartbreak Companion')" class="w-full py-2.5 rounded-full border border-sage-600 text-sage-700 font-semibold text-xs hover:bg-sage-600 hover:text-white transition-colors">
+          Select This Path
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About / Philosophy Section -->
+  <section id="about" class="py-16 bg-warm-100/50 border-y border-warm-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        
+        <div class="relative">
+          <div class="rounded-3xl overflow-hidden bg-sage-200 border-4 border-white shadow-xl aspect-4/3 flex items-center justify-center p-8 text-center">
+            <div class="space-y-3">
+              <i data-lucide="sun" class="w-12 h-12 text-sage-700 mx-auto"></i>
+              <h4 class="font-serif text-2xl font-bold text-sage-900">Kintsugi Philosophy</h4>
+              <p class="text-sm text-sage-800 max-w-sm">
+                In Japanese tradition, broken pottery is repaired with gold lacquer. The vessel is considered more beautiful and resilient for having been broken.
+              </p>
+            </div>
+          </div>
+          <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-lg border border-warm-200 hidden sm:flex items-center gap-3">
+            <div class="p-2 rounded-xl bg-sage-100 text-sage-700">
+              <i data-lucide="lock" class="w-5 h-5"></i>
+            </div>
+            <div class="text-xs">
+              <p class="font-bold text-warm-900">100% Anonymous</p>
+              <p class="text-warm-800">Use any name or alias you like</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <span class="text-xs uppercase tracking-widest font-bold text-sage-600">Our Sacred Ethos</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-sage-950">You do not need fixing; you need witnessing.</h2>
+          
+          <p class="text-warm-800 text-sm sm:text-base leading-relaxed">
+            The world frequently pushes us to bounce back, work through grief in a weekend, and stay strong for everyone else. When that mask falls apart, where can you go?
+          </p>
+          
+          <p class="text-warm-800 text-sm sm:text-base leading-relaxed">
+            Renew &amp; Heal was founded to provide that sanctuary. We are life guides, certified listeners, and emotional wellness consultants who respect your pain rather than try to gloss over it.
+          </p>
+
+          <div class="grid grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-2xl bg-white border border-warm-200">
+              <span class="font-serif text-2xl font-bold text-sage-800">1,400+</span>
+              <p class="text-xs text-warm-800 mt-1">Sessions of patient listening held</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-white border border-warm-200">
+              <span class="font-serif text-2xl font-bold text-sage-800">100%</span>
+              <p class="text-xs text-warm-800 mt-1">Strict privacy and non-disclosure</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Stories of Hope (Testimonials) -->
+  <section id="testimonials" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="text-xs uppercase tracking-widest font-bold text-sage-600">Real Journeys</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-sage-950 mt-1">Voices From The Other Side of Darkness</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <div class="bg-warm-50 p-6 rounded-2xl border border-warm-200 flex flex-col justify-between">
+        <p class="text-sm text-warm-800 italic leading-relaxed">
+          "After my divorce, I felt like a ghost in my own apartment. I didn't want clinical diagnoses, I just needed someone who didn't look at me with pity. These calls literally gave me back my breath."
+        </p>
+        <div class="mt-6 flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-sage-200 text-sage-800 flex items-center justify-center font-bold text-xs">M</div>
+          <div>
+            <p class="text-xs font-bold text-warm-900">Marcus T.</p>
+            <p class="text-[11px] text-warm-800">Rebuild Session Client</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-warm-50 p-6 rounded-2xl border border-warm-200 flex flex-col justify-between">
+        <p class="text-sm text-warm-800 italic leading-relaxed">
+          "I chose the camera-off voice session because I couldn't stop crying. The consultant never interrupted or told me everything happens for a reason. She just held space. That was everything."
+        </p>
+        <div class="mt-6 flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-dustyrose-200 text-dustyrose-600 flex items-center justify-center font-bold text-xs">S</div>
+          <div>
+            <p class="text-xs font-bold text-warm-900">Sarah K.</p>
+            <p class="text-[11px] text-warm-800">Unburdening Call Client</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-warm-50 p-6 rounded-2xl border border-warm-200 flex flex-col justify-between">
+        <p class="text-sm text-warm-800 italic leading-relaxed">
+          "Having someone help me break my overwhelming days down into 10-minute blocks kept me from quitting my life completely. I'm slow, but I'm standing again."
+        </p>
+        <div class="mt-6 flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-sage-200 text-sage-800 flex items-center justify-center font-bold text-xs">A</div>
+          <div>
+            <p class="text-xs font-bold text-warm-900">Anonymous Client</p>
+            <p class="text-[11px] text-warm-800">Weekly Guidance</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Booking Form Section -->
+  <section id="booking" class="py-16 bg-sage-100/60 border-t border-sage-200">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="bg-white rounded-3xl p-8 sm:p-10 shadow-lg border border-warm-200">
+        
+        <div class="text-center mb-8">
+          <span class="text-xs uppercase tracking-widest font-bold text-sage-600">Confidential Intake</span>
+          <h2 class="font-serif text-3xl font-bold text-sage-950 mt-1">Book Your Guidance Session</h2>
+          <p class="text-xs sm:text-sm text-warm-800 mt-2 max-w-md mx-auto">
+            Take this one small step. You may use a pseudonym, turn off your video, or communicate via text. Your comfort is paramount.
+          </p>
+        </div>
+
+        <form id="consultationForm" onsubmit="handleBookingSubmit(event)" class="space-y-5">
+          <input type="hidden" name="access_key" value="de5e375c-2e6b-48d7-94b1-10ced7927ffd">
+          <input type="hidden" name="subject" value="New Renew &amp; Heal Session Request">
+          <input type="hidden" name="from_name" value="Renew &amp; Heal Booking Form">
+          <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="clientName" class="block text-xs font-semibold text-warm-900 mb-1">Your Name or Alias *</label>
+              <input type="text" id="clientName" name="clientName" autocomplete="name" required placeholder="What may we call you?" class="w-full px-4 py-2.5 rounded-xl border border-warm-300 focus:outline-none focus:ring-2 focus:ring-sage-500 text-sm bg-warm-50/50">
+            </div>
+
+            <div>
+              <label for="clientEmail" class="block text-xs font-semibold text-warm-900 mb-1">Email (For session link) *</label>
+              <input type="email" id="clientEmail" name="clientEmail" autocomplete="email" required placeholder="you@example.com" class="w-full px-4 py-2.5 rounded-xl border border-warm-300 focus:outline-none focus:ring-2 focus:ring-sage-500 text-sm bg-warm-50/50">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="serviceSelect" class="block text-xs font-semibold text-warm-900 mb-1">Service Type *</label>
+              <select id="serviceSelect" name="service" required class="w-full px-4 py-2.5 rounded-xl border border-warm-300 focus:outline-none focus:ring-2 focus:ring-sage-500 text-sm bg-warm-50/50">
+                <option value="The Unburdening Call">The Unburdening Call (45 mins)</option>
+                <option value="Life Rebuild & Direction">Life Rebuild & Direction (60 mins)</option>
+                <option value="Grief & Heartbreak Companion">Grief & Heartbreak Companion (50 mins)</option>
+                <option value="General Gentle Listening">General Gentle Check-in (30 mins)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="sessionMode" class="block text-xs font-semibold text-warm-900 mb-1">Preferred Communication Medium *</label>
+              <select id="sessionMode" name="sessionMode" required class="w-full px-4 py-2.5 rounded-xl border border-warm-300 focus:outline-none focus:ring-2 focus:ring-sage-500 text-sm bg-warm-50/50">
+                <option value="Voice Call (Camera OFF)">Voice Call (Camera OFF - Audio Only)</option>
+                <option value="Video Call (Gentle Zoom)">Video Call (Face-to-Face)</option>
+                <option value="Private Real-time Text Chat">Private Real-time Text Chat</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="preferredDate" class="block text-xs font-semibold text-warm-900 mb-1">Preferred Date *</label>
+              <input type="date" id="preferredDate" name="preferredDate" required class="w-full px-4 py-2.5 rounded-xl border border-warm-300 focus:outline-none focus:ring-2 focus:ring-sage-500 text-sm bg-warm-50/50">
+            </div>
+
+            <div>
+              <label for="preferredTime" class="block text-xs font-semibold text-warm-900 mb-1">Preferred Time Window *</label>
+              <select id="preferredTime" name="preferredTime" required class="w-full px-4 py-2.5 rounded-xl border border-warm-300 focus:outline-none focus:ring-2 focus:ring-sage-500 text-sm bg-warm-50/50">
+                <option value="Morning (9 AM - 12 PM)">Morning (9:00 AM – 12:00 PM)</option>
+                <option value="Afternoon (1 PM - 5 PM)">Afternoon (1:00 PM – 5:00 PM)</option>
+                <option value="Quiet Evening (6 PM - 9 PM)">Quiet Evening (6:00 PM – 9:00 PM)</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="clientNotes" class="block text-xs font-semibold text-warm-900 mb-1">What is weighing heavily on your mind? (Optional)</label>
+            <textarea id="clientNotes" name="clientNotes" rows="3" placeholder="Share as little or as much as you wish. There are no expectations..." class="w-full px-4 py-2.5 rounded-xl border border-warm-300 focus:outline-none focus:ring-2 focus:ring-sage-500 text-sm bg-warm-50/50"></textarea>
+          </div>
+
+          <!-- Consent & Terms -->
+          <div class="flex items-start gap-2 pt-1">
+            <input type="checkbox" id="termsCheck" required class="mt-1 rounded text-sage-600 focus:ring-sage-500">
+            <label for="termsCheck" class="text-[11px] text-warm-800 leading-normal">
+              I understand that Renew &amp; Heal provides life guidance, supportive companionship, and consultancy, and does not replace emergency medical interventions or psychiatric diagnosis.
+            </label>
+          </div>
+
+          <button type="submit" class="w-full py-4 rounded-full bg-sage-600 hover:bg-sage-700 text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+            <i data-lucide="check-circle" class="w-4 h-4"></i>
+            Confirm Session Request
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-16 max-w-4xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12">
+      <span class="text-xs uppercase tracking-widest font-bold text-sage-600">Clarity</span>
+      <h2 class="font-serif text-3xl font-bold text-sage-950 mt-1">Frequently Asked Questions</h2>
+    </div>
+
+    <div class="space-y-4">
+      
+      <details class="group bg-warm-50 rounded-2xl p-5 border border-warm-200 cursor-pointer">
+        <summary class="font-medium text-warm-900 text-sm flex items-center justify-between list-none">
+          <span>What is the difference between this and traditional therapy?</span>
+          <i data-lucide="chevron-down" class="w-4 h-4 text-warm-800 group-open:rotate-180 transition-transform"></i>
+        </summary>
+        <p class="mt-3 text-xs sm:text-sm text-warm-800 leading-relaxed">
+          Traditional psychotherapy often diagnoses clinical mental illnesses and delves deeply into pathology. Our consultancy focuses on compassionate human presence, emotional de-escalation, life reorganization, and day-to-day companioning. If we feel you require psychiatric treatment, we will warmly assist you in finding qualified clinical professionals.
+        </p>
+      </details>
+
+      <details class="group bg-warm-50 rounded-2xl p-5 border border-warm-200 cursor-pointer">
+        <summary class="font-medium text-warm-900 text-sm flex items-center justify-between list-none">
+          <span>What if I start crying or don't know what to say?</span>
+          <i data-lucide="chevron-down" class="w-4 h-4 text-warm-800 group-open:rotate-180 transition-transform"></i>
+        </summary>
+        <p class="mt-3 text-xs sm:text-sm text-warm-800 leading-relaxed">
+          Silence is welcome here. Crying is welcome here. You are never obligated to perform or speak eloquently. Our consultants are trained to hold comfortable, calm silence until you feel ready.
+        </p>
+      </details>
+
+      <details class="group bg-warm-50 rounded-2xl p-5 border border-warm-200 cursor-pointer">
+        <summary class="font-medium text-warm-900 text-sm flex items-center justify-between list-none">
+          <span>Can I stay completely anonymous?</span>
+          <i data-lucide="chevron-down" class="w-4 h-4 text-warm-800 group-open:rotate-180 transition-transform"></i>
+        </summary>
+        <p class="mt-3 text-xs sm:text-sm text-warm-800 leading-relaxed">
+          Yes. You are welcome to use a preferred nickname or alias, disable your camera, and connect through encrypted voice or text services. Your peace of mind comes first.
+        </p>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- Global Crisis Resources Modal -->
+  <div id="crisisModal" role="dialog" aria-modal="true" aria-labelledby="crisisModalTitle" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-dustyrose-200">
+      <div class="flex items-center justify-between pb-4 border-b border-warm-200">
+        <div class="flex items-center gap-2 text-dustyrose-600 font-serif font-bold text-xl">
+          <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+          Immediate Crisis Helplines
+        </div>
+        <button type="button" aria-label="Close crisis resources" onclick="closeCrisisModal()" class="text-warm-800 hover:text-warm-900 p-1 rounded-full hover:bg-warm-100">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="mt-4 space-y-4 text-sm text-warm-900">
+        <p class="text-xs text-warm-800">
+          If you are having thoughts of suicide or are in immediate danger, please reach out to these toll-free, 24/7 dedicated support teams:
+        </p>
+
+        <div class="space-y-3">
+          <div class="p-3 bg-warm-50 rounded-xl border border-warm-200 flex justify-between items-center">
+            <div>
+              <p class="font-bold">United States &amp; Canada</p>
+              <p class="text-xs text-warm-800">Suicide &amp; Crisis Lifeline</p>
+            </div>
+            <a href="tel:988" class="px-4 py-1.5 rounded-full bg-dustyrose-600 text-white font-bold text-xs hover:bg-dustyrose-700">Dial 988</a>
+          </div>
+
+          <div class="p-3 bg-warm-50 rounded-xl border border-warm-200 flex justify-between items-center">
+            <div>
+              <p class="font-bold">United Kingdom</p>
+              <p class="text-xs text-warm-800">Samaritans Support Service</p>
+            </div>
+            <a href="tel:116123" class="px-4 py-1.5 rounded-full bg-dustyrose-600 text-white font-bold text-xs hover:bg-dustyrose-700">Dial 116 123</a>
+          </div>
+
+          <div class="p-3 bg-warm-50 rounded-xl border border-warm-200 flex justify-between items-center">
+            <div>
+              <p class="font-bold">India</p>
+              <p class="text-xs text-warm-800">Kiran Mental Health Helpline / Vandrevala</p>
+            </div>
+            <a href="tel:18005990019" class="px-4 py-1.5 rounded-full bg-dustyrose-600 text-white font-bold text-xs hover:bg-dustyrose-700">1800-599-0019</a>
+          </div>
+
+          <div class="p-3 bg-warm-50 rounded-xl border border-warm-200 flex justify-between items-center">
+            <div>
+              <p class="font-bold">International Directory</p>
+              <p class="text-xs text-warm-800">Befrienders Worldwide &amp; IASP</p>
+            </div>
+            <a href="https://www.befrienders.org" target="_blank" rel="noopener noreferrer" class="px-4 py-1.5 rounded-full border border-warm-300 font-medium text-xs hover:bg-warm-100">Find Country</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 text-center">
+        <button onclick="closeCrisisModal()" class="w-full py-2.5 bg-warm-100 text-warm-800 rounded-xl font-medium text-xs hover:bg-warm-200">
+          Close Window
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking Confirmation Modal -->
+  <div id="confirmationModal" role="dialog" aria-modal="true" aria-labelledby="confirmationModalTitle" aria-describedby="confirmationModalDesc" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-sage-200 text-center">
+      <div class="w-14 h-14 bg-sage-100 text-sage-600 rounded-full flex items-center justify-center mx-auto mb-4">
+        <i data-lucide="check" class="w-8 h-8"></i>
+      </div>
+      <h3 id="confirmationModalTitle" class="font-serif text-2xl font-bold text-sage-950 mb-2">We Have Received Your Note</h3>
+      <p id="confirmationModalDesc" class="text-xs sm:text-sm text-warm-800 leading-relaxed mb-6">
+        Thank you for trusting us. A quiet confirmation and session invite have been prepared for <span id="confirmEmailDisplay" class="font-semibold text-warm-900"></span>. Please take a gentle rest until our call.
+      </p>
+      <button onclick="closeConfirmationModal()" class="w-full py-3 bg-sage-600 hover:bg-sage-700 text-white rounded-full font-semibold text-xs shadow transition">
+        Return to Safe Space
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-auto bg-warm-100 border-t border-warm-200 py-12 text-warm-800 text-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+      
+      <div class="md:col-span-2 space-y-3">
+        <div class="flex items-center gap-2">
+          <div class="w-6 h-6 rounded-full bg-sage-500 text-white flex items-center justify-center">
+            <i data-lucide="feather" class="w-3.5 h-3.5"></i>
+          </div>
+          <span class="font-serif text-lg font-bold text-sage-950">Renew &amp; Heal</span>
+        </div>
+        <p class="max-w-sm text-warm-800 text-xs leading-relaxed">
+          A dedicated sanctuary designed for individuals enduring heartbreak, burnout, transition, and solitude. We hold space for you when your world feels too loud.
+        </p>
+        <p class="text-[11px] text-warm-800/80">
+          &copy; <span id="currentYear"></span> Renew &amp; Heal Safe Harbor Consultancy. All rights reserved.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-warm-900 mb-3">Safe Links</h4>
+        <ul class="space-y-2">
+          <li><a href="#services" class="hover:underline">Support Services</a></li>
+          <li><a href="#calm-space" class="hover:underline">Breathing &amp; Calm Tool</a></li>
+          <li><a href="#booking" class="hover:underline">Schedule Time</a></li>
+          <li><a href="#faq" class="hover:underline">Common Questions</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-warm-900 mb-3">Safe Harbor Disclaimer</h4>
+        <p class="text-[11px] text-warm-800 leading-relaxed">
+          Renew &amp; Heal provides life consulting, emotional coaching, and active listening. We do not provide clinical psychiatric prescriptions. In severe distress, please connect with certified medical centers.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Script logic -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Set dynamic current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Breathing Animation Text Sync
+    const instruction = document.getElementById('breathInstruction');
+    const breathPhases = [
+      { text: "Breathe in softly...", duration: 4000 },
+      { text: "Hold gently...", duration: 4000 },
+      { text: "Release and exhale...", duration: 6000 }
+    ];
+    let phaseIndex = 0;
+
+    function updateBreathingText() {
+      if (!instruction) return;
+      instruction.textContent = breathPhases[phaseIndex].text;
+      const currentDuration = breathPhases[phaseIndex].duration;
+      phaseIndex = (phaseIndex + 1) % breathPhases.length;
+      setTimeout(updateBreathingText, currentDuration);
+    }
+    updateBreathingText();
+
+    // Mood Affirmations
+    const affirmations = {
+      exhausted: "“You have survived 100% of your hardest days. You don't have to be productive right now; simply breathing is enough.”",
+      heartbroken: "“Grief is love with nowhere to go. Give yourself the kindness you so generously poured into others.”",
+      anxious: "“You do not need to figure out the next five years today. Just handle the next five minutes. You are safe in this moment.”",
+      lost: "“The seed feels buried and lost in the dirt before it sprouts. Confusion is often the quiet preparation before real clarity.”"
+    };
+
+    function selectMood(type) {
+      const box = document.getElementById('affirmationBox');
+      if (affirmations[type]) {
+        box.classList.add('opacity-50');
+        setTimeout(() => {
+          box.textContent = affirmations[type];
+          box.classList.remove('opacity-50');
+        }, 150);
+      }
+    }
+
+    // Prefill Service
+    function prefillService(serviceName) {
+      const select = document.getElementById('serviceSelect');
+      if (select) {
+        select.value = serviceName;
+        document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Crisis Modal
+    function openCrisisModal() {
+      const m = document.getElementById('crisisModal');
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+      document.body.classList.add('overflow-hidden');
+      m.querySelector('button')?.focus();
+    }
+    function closeCrisisModal() {
+      const m = document.getElementById('crisisModal');
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    // Booking Submission Handler
+    async function handleBookingSubmit(event) {
+      event.preventDefault();
+
+      const form = document.getElementById('consultationForm');
+      const submitButton = form.querySelector('button[type="submit"]');
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const booking = {
+        id: `RH-${Date.now()}`,
+        submittedAt: new Date().toISOString(),
+        name: document.getElementById('clientName').value.trim(),
+        email: document.getElementById('clientEmail').value.trim(),
+        service: document.getElementById('serviceSelect').value,
+        sessionMode: document.getElementById('sessionMode').value,
+        preferredDate: document.getElementById('preferredDate').value,
+        preferredTime: document.getElementById('preferredTime').value,
+        notes: document.getElementById('clientNotes').value.trim(),
+        status: 'New'
+      };
+
+      const message = [
+        `Booking ID: ${booking.id}`,
+        `Name / Alias: ${booking.name}`,
+        `Email: ${booking.email}`,
+        `Service: ${booking.service}`,
+        `Communication: ${booking.sessionMode}`,
+        `Preferred Date: ${booking.preferredDate}`,
+        `Preferred Time: ${booking.preferredTime}`,
+        `Notes: ${booking.notes || 'None provided'}`,
+        `Submitted: ${new Date(booking.submittedAt).toLocaleString()}`
+      ].join('\n');
+
+      const formData = new FormData(form);
+      formData.set('name', booking.name);
+      formData.set('email', booking.email);
+      formData.set('message', message);
+      formData.set('subject', `New Session Request — ${booking.service}`);
+
+      const originalButtonHTML = submitButton.innerHTML;
+      submitButton.disabled = true;
+      submitButton.setAttribute('aria-busy', 'true');
+      submitButton.innerHTML = '<span class="animate-pulse">Sending request…</span>';
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData
+        });
+
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+          throw new Error(result.message || 'Web3Forms submission failed.');
+        }
+
+        try {
+          const bookings = JSON.parse(localStorage.getItem('renewHealBookings') || '[]');
+          bookings.push(booking);
+          localStorage.setItem('renewHealBookings', JSON.stringify(bookings));
+        } catch (storageError) {
+          console.warn('Email sent, but local storage was unavailable.', storageError);
+        }
+
+        document.getElementById('confirmEmailDisplay').textContent = booking.email;
+        const modal = document.getElementById('confirmationModal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.classList.add('overflow-hidden');
+        modal.querySelector('button')?.focus();
+
+        form.reset();
+        preferredDate.min = new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+          .toISOString().split('T')[0];
+
+      } catch (error) {
+        console.error('Booking submission error:', error);
+        alert('We could not send your session request right now. Please check your internet connection and try again.');
+      } finally {
+        submitButton.disabled = false;
+        submitButton.removeAttribute('aria-busy');
+        submitButton.innerHTML = originalButtonHTML;
+        lucide.createIcons();
+      }
+    }
+
+    function closeConfirmationModal() {
+      const modal = document.getElementById('confirmationModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  </script>
+</body>
+</html>
